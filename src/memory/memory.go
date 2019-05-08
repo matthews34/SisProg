@@ -2,7 +2,6 @@ package memory
 
 import (
 	"fmt"
-	"strings"
 )
 
 type word uint16
@@ -35,15 +34,15 @@ func PrintSlice(from word, to word) {
 	bytes := memory[from:to]
 	fmt.Printf("[")
 	for _, byte := range bytes {
-		fmt.Printf(strings.ToUpper("%.2x "), byte)
+		fmt.Printf("%.2X ", byte)
 	}
 	fmt.Printf("\b]\n")
 }
 
 func PrintWord(address word) {
-	fmt.Printf(strings.ToUpper("%.2x\n"), ReadWord(address))
+	fmt.Printf("%.2X\n", ReadWord(address))
 }
 
 func PrintByte(address word) {
-	fmt.Printf(strings.ToUpper("%.2x\n"), ReadByte(address))
+	fmt.Printf("%.2X\n", ReadByte(address))
 }
