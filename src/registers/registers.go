@@ -7,6 +7,7 @@ type word uint16
 
 var PC register
 var SP register
+var SR byte // 4 bits mais significativos em branco
 var A, D [8]register
 
 func (r *register) ReadWord() word {
