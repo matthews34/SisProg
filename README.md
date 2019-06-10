@@ -7,7 +7,6 @@ Sua vantagem é a simplicidade de construção e sua desvantagem é a perda de e
 As características de memória, registradores, equipamentos de entrada, saída e armazenamento, e os blocos funcionais estão descritos nos próximos itens.
 
 ## Memória
-<!-- Já pode ser implentado -->
 * 16 bits por palavra
 * 16 bits (2 bytes) de endereçamento
 * número máximo de palavras: 2<sup>16</sup> = 65536 bytes = 32768 palavras
@@ -16,6 +15,7 @@ As características de memória, registradores, equipamentos de entrada, saída 
 <!-- Já pode ser implentado -->
 * Pointeiro de pilha: SP (2 bytes)
 * Program counter: PC (2 bytes)
+* Registrador de status: SR (Zero-Negative-Overflow) (1 byte - 5 bits vazios)
 * Aritméticos/Lógicos: A0-A7 e D0-D7 (16 registradores com 2 bytes cada)
 <!-- * Outros: adicionar se necessário -->
 
@@ -23,7 +23,7 @@ As características de memória, registradores, equipamentos de entrada, saída 
 <!-- Já pode ser implementado -->
 * Entrada: buffer stdin
 * Saída: buffer stdout
-* Armazenamento: memória
+* Armazenamento: memória <!--check-->
 
 ## Blocos funcionais
 * Unidade aritmética e lógica - Operações
