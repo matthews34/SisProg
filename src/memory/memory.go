@@ -4,33 +4,31 @@ import (
 	"fmt"
 )
 
-type word uint16
-
 //memory size in bytes
 const MEMORY_SIZE = 65536
 
 var memory [MEMORY_SIZE]byte
 
-func ReadWord(address word) word {
+func ReadWord(address uint16) uint16 {
 	byte1, byte2 := memory[address], memory[address+1]
-	return word(byte2) | word(byte1)<<8
+	return uint16(byte2) | uint16(byte1)<<8
 }
 
-func WriteWord(address word, wordToWrite word) {
+func WriteWord(address uint16, wordToWrite uint16) {
 	byte2 := byte(wordToWrite & 0x00FF)
 	byte1 := byte(wordToWrite >> 8 & 0x00FF)
 	memory[address], memory[address+1] = byte1, byte2
 }
 
-func ReadByte(address word) byte {
+func ReadByte(address uint16) byte {
 	return memory[address]
 }
 
-func WriteByte(address word, byteToWrite byte) {
+func WriteByte(address uint16, byteToWrite byte) {
 	memory[address] = byteToWrite
 }
 
-func PrintSlice(from word, to word) {
+func PrintSlice(from uint16, to uint16) {
 	bytes := memory[from:to]
 	fmt.Printf("[")
 	for _, byte := range bytes {
@@ -39,10 +37,10 @@ func PrintSlice(from word, to word) {
 	fmt.Printf("\b]\n")
 }
 
-func PrintWord(address word) {
+func PrintWord(address uint16) {
 	fmt.Printf("%.2X\n", ReadWord(address))
 }
 
-func PrintByte(address word) {
+func PrintByte(address uint16) {
 	fmt.Printf("%.2X\n", ReadByte(address))
 }
